@@ -7,3 +7,7 @@ var exec = require('cordova/exec');
 exports.getInfo = function(callback) {
   exec(callback, callback, 'ChromeSystemMemory', 'getInfo', []);
 };
+
+exports.getCurrentInfo = function (callback) {
+  exec(callback, callback, 'ChromeSystemMemory', 'getCurrentInfo', []);
+}

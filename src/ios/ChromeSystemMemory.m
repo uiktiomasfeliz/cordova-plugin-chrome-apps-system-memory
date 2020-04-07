@@ -16,6 +16,7 @@
 @interface ChromeSystemMemory : CDVPlugin
 
 - (void)getInfo:(CDVInvokedUrlCommand*)command;
+- (void)getCurrentInfo: (CDVInvokedUrlCommand)command;
 
 @end
 
@@ -62,6 +63,35 @@
 }
 
 - (void)getInfo:(CDVInvokedUrlCommand*)command
+{
+    [self.commandDelegate runInBackground:^{
+        CDVPluginResult* pluginResult = nil;
+
+        NSError* error = nil;
+
+        NSNumber* capacity = [NSNumber numberWithUnsignedLongLong:[[NSProcessInfo processInfo] physicalMemory]];
+        NSNumber* available = [self getAvailableMemory:&error];
+
+        if (available)
+        {
+            NSDictionary* info = @{
+                @"availableCapacity": available,
+                @"capacity": capacity
+            };
+
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:info];
+        }
+        else
+        {
+            NSLog(@"Error occured while getting memory info - %@", [error localizedDescription]);
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Could not get memory info"];
+        }
+
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+    }];
+}
+
+- (void)getCurrentInfo:(CDVInvokedUrlCommand*)command
 {
     [self.commandDelegate runInBackground:^{
         CDVPluginResult* pluginResult = nil;
