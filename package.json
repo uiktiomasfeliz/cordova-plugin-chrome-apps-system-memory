@@ -1,9 +1,9 @@
 {
-  "name": "cordova-plugin-chrome-apps-system-memory",
-  "version": "1.1.2-dev",
+  "name": "cordova-plugin-chrome-apps-system-memory-cxm",
+  "version": "1.0.0",
   "description": "This plugin provides the ability to get physical memory information.",
   "cordova": {
-    "id": "cordova-plugin-chrome-apps-system-memory",
+    "id": "cordova-plugin-chrome-apps-system-memory-cxm",
     "platforms": [
       "android",
       "ios"
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/MobileChromeApps/cordova-plugin-chrome-apps-system-memory.git"
+    "url": "https://github.com/buaazhangfan/cordova-plugin-chrome-apps-system-memory.git"
   },
   "keywords": [
     "chrome",
@@ -27,10 +27,10 @@
       "version": ">=3.0.0"
     }
   ],
-  "author": "",
+  "author": "Fan Zhang",
   "license": "BSD",
   "bugs": {
-    "url": "https://github.com/MobileChromeApps/cordova-plugin-chrome-apps-system-memory/issues"
+    "url": "https://github.com/buaazhangfan/cordova-plugin-chrome-apps-system-memory/issues"
   },
-  "homepage": "https://github.com/MobileChromeApps/cordova-plugin-chrome-apps-system-memory"
+  "homepage": "https://github.com/buaazhangfan/cordova-plugin-chrome-apps-system-memory"
 }

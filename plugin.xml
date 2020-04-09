@@ -5,16 +5,16 @@
   found in the LICENSE file.
 -->
 <plugin xmlns="http://cordova.apache.org/ns/plugins/1.0"
-    id="cordova-plugin-chrome-apps-system-memory"
-    version="1.1.2-dev">
+    id="cordova-plugin-chrome-apps-system-memory-cxm"
+    version="1.0.0">
   <engines>
     <engine name="cordova" version=">=3.0.0" />
   </engines>
 
   <name>Chrome System Memory API</name>
   <keywords>chrome,system,memory</keywords>
-  <repo>https://github.com/MobileChromeApps/cordova-plugin-chrome-apps-system-memory.git</repo>
-  <issue>https://github.com/MobileChromeApps/cordova-plugin-chrome-apps-system-memory/issues</issue>
+  <repo>https://github.com/buaazhangfan/cordova-plugin-chrome-apps-system-memory.git</repo>
+  <issue>https://github.com/buaazhangfan/cordova-plugin-chrome-apps-system-memory/issues</issue>
 
   <js-module src="system.memory.js" name="system.memory">
     <clobbers target="chrome.system.memory" />
