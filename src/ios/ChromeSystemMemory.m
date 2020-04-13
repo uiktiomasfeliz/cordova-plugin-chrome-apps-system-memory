@@ -16,7 +16,7 @@
 @interface ChromeSystemMemory : CDVPlugin
 
 - (void)getInfo:(CDVInvokedUrlCommand*)command;
-- (void)getCurrentInfo: (CDVInvokedUrlCommand)command;
+- (void)getCurrentInfo: (CDVInvokedUrlCommand*)command;
 
 @end
 
