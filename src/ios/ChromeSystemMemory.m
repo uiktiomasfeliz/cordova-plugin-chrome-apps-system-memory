@@ -31,7 +31,7 @@
 	NSDictionary* userInfo = @{
                               NSLocalizedDescriptionKey: [NSString stringWithFormat:@"%@: %d - %@", errMsg, code, codeDescription]
                               };
-	
+
 	return [NSError errorWithDomain:NSPOSIXErrorDomain code:code userInfo:userInfo];
 }
 
@@ -43,7 +43,7 @@
 
     host_port = mach_host_self();
     host_size = sizeof(vm_statistics_data_t) / sizeof(integer_t);
-    host_page_size(host_port, &pagesize);        
+    host_page_size(host_port, &pagesize);
 
     vm_statistics_data_t vm_stat;
 
@@ -53,13 +53,26 @@
 		{
 			*error = [self kernelCallError:@"Failed to fetch vm statistics"];
 		}
-        return nil;
+      return nil;
     }
-    
-    /* Stats in bytes */ 
+
+    /* Stats in bytes */
     natural_t mem_free = vm_stat.free_count * pagesize;
-    
+​
     return @(mem_free);
+}
+​
+- (NSNumber *)getMemoryFootprint:(NSError **)error
+{
+  task_vm_info_data_t vmInfo;
+  mach_msg_type_number_t count = TASK_VM_INFO_COUNT;
+  kern_return_t result = task_info(mach_task_self(), TASK_VM_INFO, (task_info_t) &vmInfo, &count);
+  if (result != KERN_SUCCESS)
+      return nil;
+​
+  /* Stats in bytes */
+  natural_t mem_free = vmInfo.phys_footprint);
+  return @(mem_free);
 }
 
 - (void)getInfo:(CDVInvokedUrlCommand*)command
@@ -95,11 +108,10 @@
 {
     [self.commandDelegate runInBackground:^{
         CDVPluginResult* pluginResult = nil;
-
         NSError* error = nil;
 
         NSNumber* capacity = [NSNumber numberWithUnsignedLongLong:[[NSProcessInfo processInfo] physicalMemory]];
-        NSNumber* available = [self getAvailableMemory:&error];
+        NSNumber* available = [self getMemoryFootprint:&error];
 
         if (available)
         {
