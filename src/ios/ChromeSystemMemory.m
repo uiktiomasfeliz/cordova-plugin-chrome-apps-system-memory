@@ -111,13 +111,13 @@
         NSError* error = nil;
 
         NSNumber* capacity = [NSNumber numberWithUnsignedLongLong:[[NSProcessInfo processInfo] physicalMemory]];
-        NSNumber* available = [self getMemoryFootprint:&error];
+        NSNumber* consumed = [self getMemoryFootprint:&error];
 
-        if (available)
+        if (consumed)
         {
             NSDictionary* info = @{
-                @"availableCapacity": available,
-                @"capacity": capacity
+                @"consumedCapacity": consumed,
+                @"totalCapacity": capacity
             };
 
             pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:info];
