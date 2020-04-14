@@ -58,10 +58,10 @@
 
     /* Stats in bytes */
     natural_t mem_free = vm_stat.free_count * pagesize;
-​
+
     return @(mem_free);
 }
-​
+
 - (NSNumber *)getMemoryFootprint:(NSError **)error
 {
   task_vm_info_data_t vmInfo;
@@ -69,9 +69,9 @@
   kern_return_t result = task_info(mach_task_self(), TASK_VM_INFO, (task_info_t) &vmInfo, &count);
   if (result != KERN_SUCCESS)
       return nil;
-​
+
   /* Stats in bytes */
-  natural_t mem_free = vmInfo.phys_footprint);
+  natural_t mem_free = vmInfo.phys_footprint;
   return @(mem_free);
 }
 
