@@ -16,6 +16,7 @@ import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ActivityManager.MemoryInfo;
 import android.os.Build;
+import android.os.Debug;
 import android.util.Log;
 
 public class ChromeSystemMemory extends CordovaPlugin {
@@ -36,6 +37,10 @@ public class ChromeSystemMemory extends CordovaPlugin {
             getInfo(args, callbackContext);
             return true;
         }
+        else if ("getCurrentInfo".equals(action)) {
+            getCurrentInfo(args, callbackContext);
+            return true;
+        }
         return false;
     }
 
@@ -53,6 +58,37 @@ public class ChromeSystemMemory extends CordovaPlugin {
                         ret.put("capacity", memoryInfo.totalMem);
                     }
 
+                    callbackContext.success(ret);
+                } catch (Exception e) {
+                    Log.e(LOG_TAG, "Error occured while getting memory info", e);
+                    callbackContext.error("Could not get memory info");
+                }
+            }
+        });
+    }
+
+    private long getMemoryFootprint() {
+        Debug.MemoryInfo memInfo = new Debug.MemoryInfo();
+        Debug.getMemoryInfo(memInfo);
+        long res = memInfo.getTotalPrivateDirty();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
+            res += memInfo.getTotalPrivateClean();
+        return res * 1024L;
+    }
+
+    private void getCurrentInfo(final CordovaArgs args, final CallbackContext callbackContext) {
+        cordova.getThreadPool().execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    JSONObject ret = new JSONObject();
+                    MemoryInfo memoryInfo = new MemoryInfo();
+                    activityManager.getMemoryInfo(memoryInfo);
+                    long consumedCapacity = getMemoryFootprint();
+                    ret.put("counsumedCapacity", consumedCapacity);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                        ret.put("totalCapacity", memoryInfo.totalMem);
+                    }
                     callbackContext.success(ret);
                 } catch (Exception e) {
                     Log.e(LOG_TAG, "Error occured while getting memory info", e);
