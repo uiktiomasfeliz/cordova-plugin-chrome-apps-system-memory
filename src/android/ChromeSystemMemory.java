@@ -85,7 +85,7 @@ public class ChromeSystemMemory extends CordovaPlugin {
                     MemoryInfo memoryInfo = new MemoryInfo();
                     activityManager.getMemoryInfo(memoryInfo);
                     long consumedCapacity = getMemoryFootprint();
-                    ret.put("counsumedCapacity", consumedCapacity);
+                    ret.put("consumedCapacity", consumedCapacity);
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                         ret.put("totalCapacity", memoryInfo.totalMem);
                     }
