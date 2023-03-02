@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-#import <Cordova/CDVPlugin.h>
 #import <Foundation/Foundation.h>
 #import <mach/mach.h>
 #import <mach/mach_host.h>
@@ -13,12 +12,6 @@
 #define VERBOSE_LOG(args...) do {} while (false)
 #endif
 
-@interface ChromeSystemMemory : CDVPlugin
-
-- (void)getInfo:(CDVInvokedUrlCommand*)command;
-- (void)getCurrentInfo: (CDVInvokedUrlCommand*)command;
-
-@end
 
 @implementation ChromeSystemMemory
 
