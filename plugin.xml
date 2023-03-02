@@ -36,9 +36,8 @@
         <param name="ios-package" value="ChromeSystemMemory"/>
       </feature>
     </config-file>
-    <!--
+    
     <header-file src="src/ios/ChromeSystemMemory.h"/>
-    -->
     <source-file src="src/ios/ChromeSystemMemory.m"/>
   </platform>
 </plugin>
