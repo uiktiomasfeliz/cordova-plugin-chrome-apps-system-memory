@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 #import <Cordova/CDVPlugin.h>
+#import "ChromeSystemMemory.h"
 #import <Foundation/Foundation.h>
 #import <mach/mach.h>
 #import <mach/mach_host.h>
