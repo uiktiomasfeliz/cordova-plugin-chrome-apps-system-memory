@@ -21,11 +21,11 @@
   </js-module>
 
   <platform name="android">
-    <source-file src="src/android/SystemMemory.java" target-dir="src/org/chromium" />
+    <source-file src="src/android/SystemMemory.java" target-dir="src/org/apache/cordova/systemmemory" />
     
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="SystemMemory">
-        <param name="android-package" value="org.chromium.SystemMemory"/>
+        <param name="android-package" value="org.apache.cordova.systemmemory.SystemMemory"/>
       </feature>
     </config-file>   
   </platform>
