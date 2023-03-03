@@ -19,8 +19,8 @@ import android.os.Build;
 import android.os.Debug;
 import android.util.Log;
 
-public class ChromeSystemMemory extends CordovaPlugin {
-    private static final String LOG_TAG = "ChromeSystemMemory";
+public class SystemMemory extends CordovaPlugin {
+    private static final String LOG_TAG = "SystemMemory";
 
     private ActivityManager activityManager;
 
