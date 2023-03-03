@@ -24,8 +24,8 @@
     <source-file src="src/android/SystemMemory.java" target-dir="src/org/chromium" />
     
     <config-file target="res/xml/config.xml" parent="/*">
-      <feature name="ChromeSystemMemory">
-        <param name="android-package" value="org.chromium.ChromeSystemMemory"/>
+      <feature name="SystemMemory">
+        <param name="android-package" value="org.chromium.SystemMemory"/>
       </feature>
     </config-file>   
   </platform>
