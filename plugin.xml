@@ -13,8 +13,8 @@
 
   <name>Chrome System Memory API</name>
   <keywords>chrome,system,memory</keywords>
-  <repo>https://github.com/buaazhangfan/cordova-plugin-chrome-apps-system-memory.git</repo>
-  <issue>https://github.com/buaazhangfan/cordova-plugin-chrome-apps-system-memory/issues</issue>
+  <repo>https://github.com/uiktiomasfeliz/cordova-plugin-chrome-apps-system-memory.git</repo>
+  <issue>https://github.com/uiktiomasfeliz/cordova-plugin-chrome-apps-system-memory/issues</issue>
 
   <js-module src="system.memory.js" name="system.memory">
     <clobbers target="window.SystemMemory" />
