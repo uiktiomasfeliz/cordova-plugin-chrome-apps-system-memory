@@ -5,7 +5,7 @@
 #import <Cordova/CDVPlugin.h>
 
 
-@interface ChromeSystemMemory : CDVPlugin
+@interface SystemMemory : CDVPlugin
 
 - (void)getInfo:(CDVInvokedUrlCommand*)command;
 - (void)getCurrentInfo: (CDVInvokedUrlCommand*)command;
