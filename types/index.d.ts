@@ -13,9 +13,9 @@ interface SystemMemory {
     /** Indicates that Cordova initialize successfully. */
     available: boolean;
     
-    /** Get the device's operating system name. */
+    /** Get the device's avaible system memory. */
     availableCapacity: string;   
-    /** Get the operating system version. */
+    /** Get the device's total system memory. */
     capacity: string;    
 }
 
