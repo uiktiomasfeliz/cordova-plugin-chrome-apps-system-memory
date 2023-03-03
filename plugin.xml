@@ -17,11 +17,11 @@
   <issue>https://github.com/buaazhangfan/cordova-plugin-chrome-apps-system-memory/issues</issue>
 
   <js-module src="system.memory.js" name="system.memory">
-    <clobbers target="chrome.system.memory" />
+    <clobbers target="window.SystemMemory" />
   </js-module>
 
   <platform name="android">
-    <source-file src="src/android/ChromeSystemMemory.java" target-dir="src/org/chromium" />
+    <source-file src="src/android/SystemMemory.java" target-dir="src/org/chromium" />
     
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="ChromeSystemMemory">
@@ -32,12 +32,12 @@
 
   <platform name="ios">
     <config-file target="config.xml" parent="/*">
-      <feature name="ChromeSystemMemory">
-        <param name="ios-package" value="ChromeSystemMemory"/>
+      <feature name="SystemMemory">
+        <param name="ios-package" value="SystemMemory"/>
       </feature>
     </config-file>
     
-    <header-file src="src/ios/ChromeSystemMemory.h"/>
-    <source-file src="src/ios/ChromeSystemMemory.m"/>
+    <header-file src="src/ios/SystemMemory.h"/>
+    <source-file src="src/ios/SystemMemory.m"/>
   </platform>
 </plugin>
