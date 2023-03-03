@@ -4,7 +4,7 @@
 
 exports.defineManualTests = function(rootEl, addButton) {
   addButton('Get Info', function() {
-    chrome.system.memory.getInfo(function(info) {
+    SystemMemory.getInfo(function(info) {
       console.log(JSON.stringify(info, null, 4));
     });
   });
@@ -36,11 +36,11 @@ exports.defineAutoTests = function() {
 
   describe('getInfo', function() {
     it('should exist', function() {
-      expect(chrome.system.memory.getInfo).toBeDefined();
+      expect(SystemMemory.getInfo).toBeDefined();
     });
 
     it('should return an info object', function(done) {
-      chrome.system.memory.getInfo(function(info) {
+      SystemMemory.getInfo(function(info) {
         expect(info).toBeDefined();
         expect(info).not.toBe(null);
 
@@ -49,7 +49,7 @@ exports.defineAutoTests = function() {
     });
 
     it('should report the physical capacity', function(done) {
-      chrome.system.memory.getInfo(function(info) {
+      SystemMemory.getInfo(function(info) {
 
         expect(info).toHaveProperty('capacity', 'number');
         expect(info.capacity).toBeGreaterThan(0);
@@ -59,7 +59,7 @@ exports.defineAutoTests = function() {
     });
 
     it('should report the available capacity', function(done) {
-      chrome.system.memory.getInfo(function(info) {
+      SystemMemory.getInfo(function(info) {
 
         expect(info).toHaveProperty('availableCapacity', 'number');
         expect(info.availableCapacity).toBeGreaterThan(0);
@@ -69,7 +69,7 @@ exports.defineAutoTests = function() {
     });
 
     it('should report physical > available capacity', function(done) {
-      chrome.system.memory.getInfo(function(info) {
+      SystemMemory.getInfo(function(info) {
 
         expect(info.capacity).toBeGreaterThan(info.availableCapacity);
 
