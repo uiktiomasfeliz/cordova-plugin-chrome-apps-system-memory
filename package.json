@@ -2,6 +2,7 @@
   "name": "cordova-plugin-system-memory",
   "version": "1.1.1",
   "description": "This plugin provides the ability to get physical memory information.",
+  "types": "./types/index.d.ts",
   "cordova": {
     "id": "cordova-plugin-system-memory",
     "platforms": [
