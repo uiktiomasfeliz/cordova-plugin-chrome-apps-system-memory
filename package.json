@@ -28,8 +28,8 @@
       "version": ">=3.0.0"
     }
   ],
-  "author": "Fan Zhang",
-  "license": "BSD",
+  "author": "Apache Software Foundation",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/uiktiomasfeliz/cordova-plugin-system-memory/issues"
   },
