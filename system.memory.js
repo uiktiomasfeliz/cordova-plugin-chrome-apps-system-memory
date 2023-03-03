@@ -23,9 +23,9 @@ var argscheck = require('cordova/argscheck');
 var channel = require('cordova/channel');
 var exec = require('cordova/exec');
 
-channel.createSticky('onCordovaInfoReady');
+channel.createSticky('onSystemInfoReady');
 // Tell cordova channel to wait on the CordovaInfoReady event
-channel.waitForInitialization('onCordovaInfoReady');
+channel.waitForInitialization('onSystemInfoReady');
 
 /**
  * This represents the mobile device, and provides properties for inspecting the model, version, UUID of the
@@ -52,7 +52,7 @@ function SystemMemory () {
                 me.availableCapacity = info.availableCapacity;
                 me.capacity = info.capacity;
                
-                channel.onCordovaInfoReady.fire();
+                channel.onSystemInfoReady.fire();
             },
             function (e) {
                 me.available = false;
