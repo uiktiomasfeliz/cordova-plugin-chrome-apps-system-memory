@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 #import <Cordova/CDVPlugin.h>
-#import "ChromeSystemMemory.h"
+#import "SystemMemory.h"
 #import <Foundation/Foundation.h>
 #import <mach/mach.h>
 #import <mach/mach_host.h>
@@ -15,7 +15,7 @@
 #endif
 
 
-@implementation ChromeSystemMemory
+@implementation SystemMemory
 
 
 - (NSError *)kernelCallError:(NSString *)errMsg
